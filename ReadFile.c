@@ -13,5 +13,6 @@ int main()
 	
 	while (fscanf(filePointer,"%s", buffer)!=EOF) printf("%s",buffer);
 	fclose(filePointer);
+	printf("Read file successful");
 	return 0;
 }
