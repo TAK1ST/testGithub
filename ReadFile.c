@@ -10,7 +10,7 @@ int main()
 		printf("Could not open file\n");
 		return 1;	
 	}	
-	
+	for (int i = 0, i < 10; i++) printf("%d",i);
 	while (fscanf(filePointer,"%s", buffer)!=EOF) printf("%s\n",buffer);
 	fclose(filePointer);
 	return 0;
