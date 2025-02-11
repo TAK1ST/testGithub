@@ -11,7 +11,7 @@ int main()
 		return 1;	
 	}	
 	
-	while (fscanf(filePointer,"%s", buffer)!=EOF) printf("%s\n",buffer);
+	while (fscanf(filePointer,"%s", buffer)!=EOF) printf("%s",buffer);
 	fclose(filePointer);
 	return 0;
 }
