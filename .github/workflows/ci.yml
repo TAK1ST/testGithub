@@ -1,0 +1,56 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  # Test frontend (React + Vite)
+  test-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Run frontend tests
+        run: |
+          cd frontend
+          npm run test -- --watchAll=false
+
+  # Test backend (ASP.NET Core API)
+  test-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.19'
+
+      - name: Restore dependencies
+        run: |
+          cd backend
+          dotnet restore
+
+      - name: Build backend
+        run: |
+          cd backend
+          dotnet build --no-restore
+
+      - name: Run backend tests
+        run: |
+          cd backend
+          dotnet test --no-build --verbosity normal
