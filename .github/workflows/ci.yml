@@ -25,7 +25,7 @@ jobs:
 
       - name: Run frontend tests
         run: |
-          cd frontend
+          cd FrontEnd
           npm run test -- --watchAll=false
 
   # Test backend (ASP.NET Core API)
@@ -38,7 +38,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.19'
+          dotnet-version: '8.0.20'
 
       - name: Restore dependencies
         run: |
@@ -47,10 +47,10 @@ jobs:
 
       - name: Build backend
         run: |
-          cd backend
+          cd BackEnd
           dotnet build --no-restore
 
       - name: Run backend tests
         run: |
-          cd backend
+          cd BackEnd
           dotnet test --no-build --verbosity normal
