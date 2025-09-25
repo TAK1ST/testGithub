@@ -20,7 +20,7 @@ jobs:
 
       - name: Install frontend dependencies
         run: |
-          cd frontend
+          cd FrontEnd
           npm install
 
       - name: Run frontend tests
@@ -42,7 +42,7 @@ jobs:
 
       - name: Restore dependencies
         run: |
-          cd backend
+          cd BackEnd
           dotnet restore
 
       - name: Build backend
