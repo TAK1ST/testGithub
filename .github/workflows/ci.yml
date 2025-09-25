@@ -71,7 +71,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./backend
-          file: ./backend/Dockerfile
+          context: ./BackEnd
+          file: ./BackEnd/Dockerfile
           push: true
-          tags: your-dockerhub-username/your-backend:latest
+          tags: tak1stprogrammer/backend:latest
